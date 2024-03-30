@@ -108,8 +108,8 @@
     <p id="info">
       This site was designed by two Americans living in Taiwan who wanted a
       Taiwan-specific converter with all the common units in one place. The
-      content choice reflects American's needs - appologies to folks from 
-      other countries, but your measuring system is probably better anyway. :)
+      content choice reflects American's needs - appologies to folks from other
+      countries, but your measuring system is probably better anyway. :)
     </p>
   </div>
 </template>
