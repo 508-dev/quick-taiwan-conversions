@@ -105,7 +105,7 @@
       <div>
         <Converter
           label="US Year - Taiwan Year"
-          outputLabel="Year/TW Equivalent"
+          outputLabel="TW Year Equivalent"
           :output="usYearConvert"
           enterVal="Enter US Year"
         />
@@ -113,7 +113,7 @@
       <div>
         <Converter
           label="Taiwan Year - US Year"
-          outputLabel="Year/US Equivalent"
+          outputLabel="US Year Equivalent"
           :output="twYearConvert"
           enterVal="Enter TW Year"
         />
