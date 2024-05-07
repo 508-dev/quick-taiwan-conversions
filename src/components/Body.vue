@@ -102,6 +102,22 @@
           enterVal="Enter NTD of 1 L"
         />
       </div>
+      <div>
+        <Converter
+          label="US Year - Taiwan Year"
+          outputLabel="Year/TW Equivalent"
+          :output="usYearConvert"
+          enterVal="Enter US Year"
+        />
+      </div>
+      <div>
+        <Converter
+          label="Taiwan Year - US Year"
+          outputLabel="Year/US Equivalent"
+          :output="twYearConvert"
+          enterVal="Enter TW Year"
+        />
+      </div>
     </div>
   </div>
   <div id="footer">
@@ -161,6 +177,14 @@ export default {
       },
       ntdlConvert(convert) {
         return Number(((convert * 3.785411784) / 27.67).toFixed(2));
+      },
+      usYearConvert(convert) {
+        if (Number(convert) === 0) return Number(0);
+        else return Number(convert - 1911);
+      },
+      twYearConvert(convert) {
+        if (Number(convert) === 0) return Number(0);
+        else return Number(convert + 1911);
       },
     };
   },
