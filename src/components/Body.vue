@@ -102,6 +102,14 @@
           enterVal="Enter NTD of 1 L"
         />
       </div>
+      <div>
+        <Converter
+          label="$Year GC - ROC"
+          outputLabel="ROC Equivalent Year"
+          :output="rocCalendarConvert"
+          enterVal="Enter GC Year"
+        />
+      </div>
     </div>
   </div>
   <div id="footer">
@@ -161,6 +169,10 @@ export default {
       },
       ntdlConvert(convert) {
         return Number(((convert * 3.785411784) / 27.67).toFixed(2));
+      },
+      rocCalendarConvert(convert) {
+        const rocYear = convert - 1911;
+        return rocYear > 0 ? rocYear : 0;
       },
     };
   },
