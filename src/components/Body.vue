@@ -104,7 +104,7 @@
       </div>
       <div>
         <Converter
-          label="$Year GC - ROC"
+          label="Year GC - ROC"
           outputLabel="ROC Equivalent Year"
           :output="rocCalendarConvert"
           enterVal="Enter GC Year"
