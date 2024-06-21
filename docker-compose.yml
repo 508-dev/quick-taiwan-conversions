@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  quick-taiwan-conversions:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: quick-taiwan-conversions-container
+    restart: unless-stopped
+    ports:
+      - "8000:8080"
+    environment:
+      - NODE_OPTIONS=--openssl-legacy-provider
+    command: npm run serve
+
+
