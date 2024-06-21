@@ -25,6 +25,9 @@ npm run test:unit
 npm run lint
 ```
 
+### Run with Docker (development mode)
+docker-compose up -d
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
@@ -35,3 +38,4 @@ Currently the netlify URL is
 https://festive-davinci-f849aa.netlify.app
 
 We need to change over the .tw domain when it's available.
+
