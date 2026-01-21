@@ -50,6 +50,18 @@ input:focus {
   padding: 10.5px 14px;
   margin: #fff;
 }
+
+[data-theme="dark"] input {
+  background-color: #444;
+  color: #fff;
+  border-color: #666;
+}
+
+[data-theme="dark"] input:focus {
+  background-color: #555;
+  color: #fff;
+}
+
 p {
   font-size: 14pt;
   font-weight: bold;

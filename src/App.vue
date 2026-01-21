@@ -31,4 +31,9 @@ export default {
   margin: 0;
   box-sizing: border-box;
 }
+
+[data-theme="dark"] #app {
+  filter: grayscale(40%) brightness(0.7);
+  color: #fff;
+}
 </style>
