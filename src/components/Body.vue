@@ -76,22 +76,6 @@
       </div>
       <div>
         <Converter
-          label="Sq-ft - Ping"
-          outputLabel="Ping Equivalent"
-          :output="sqftConvert"
-          enterVal="Enter Sq-ft"
-        />
-      </div>
-      <div>
-        <Converter
-          label="Ping - Sq-ft"
-          outputLabel="Sq-ft Equivalent"
-          :output="pingConvert"
-          enterVal="Enter Ping"
-        />
-      </div>
-      <div>
-        <Converter
           label="$Gas USD/G - NTD/L"
           outputLabel="NTD/L Equivalent"
           :output="usdgalConvert"
@@ -122,13 +106,43 @@
           enterVal="Enter ROC Year"
         />
       </div>
+      <div>
+        <Converter
+          label="Sq-ft - Sq-m - Ping"
+          outputLabel="Ping Equivalent"
+          secondaryOutputLabel="Sq-m Equivalent"
+          :output="sqftConvert"
+          :secondaryOutput="sqftToSqm"
+          enterVal="Enter Sq-ft"
+        />
+      </div>
+      <div>
+        <Converter
+          label="Sq-m - Sq-ft - Ping"
+          outputLabel="Sq-ft Equivalent"
+          secondaryOutputLabel="Ping Equivalent"
+          :output="sqmToSqft"
+          :secondaryOutput="sqmToPing"
+          enterVal="Enter Sq-m"
+        />
+      </div>
+      <div>
+        <Converter
+          label="Ping - Sq-ft - Sq-m"
+          outputLabel="Sq-ft Equivalent"
+          secondaryOutputLabel="Sq-m Equivalent"
+          :output="pingConvert"
+          :secondaryOutput="pingToSqm"
+          enterVal="Enter Ping"
+        />
+      </div>
     </div>
   </div>
   <div id="footer">
     <p id="info">
       This site was designed by two Americans living in Taiwan who wanted a
       Taiwan-specific converter with all the common units in one place. The
-      content choice reflects American's needs - appologies to folks from other
+      content choice reflects American's needs - apologies to folks from other
       countries, but your measuring system is probably better anyway. :)
     </p>
   </div>
@@ -273,8 +287,20 @@ export default {
     sqftConvert(convert) {
       return Number(Math.round(convert * 0.028109845688351 * 10) / 10);
     },
+    sqftToSqm(convert) {
+      return Number(Math.round(convert * 0.09290304 * 10) / 10);
+    },
+    sqmToSqft(convert) {
+      return Number(Math.round(convert * 10.763910416709722 * 10) / 10);
+    },
+    sqmToPing(convert) {
+      return Number(Math.round((convert / 3.305785) * 10) / 10);
+    },
     pingConvert(convert) {
       return Number(Math.round(convert * 35.57472392722561 * 10) / 10);
+    },
+    pingToSqm(convert) {
+      return Number(Math.round(convert * 3.305785 * 10) / 10);
     },
     usdgalConvert(convert) {
       return Number(
