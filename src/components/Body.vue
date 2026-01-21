@@ -109,10 +109,10 @@
       <div>
         <Converter
           label="Sq-ft - Sq-m - Ping"
-          outputLabel="Ping Equivalent"
-          secondaryOutputLabel="Sq-m Equivalent"
-          :output="sqftConvert"
-          :secondaryOutput="sqftToSqm"
+          outputLabel="Sq-m Equivalent"
+          secondaryOutputLabel="Ping Equivalent"
+          :output="sqftToSqm"
+          :secondaryOutput="sqftConvert"
           enterVal="Enter Sq-ft"
         />
       </div>
