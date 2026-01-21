@@ -108,18 +108,18 @@
       </div>
       <div>
         <Converter
-          label="US Year - Taiwan Year"
-          outputLabel="TW Year Equivalent"
+          label="Gregorian - ROC"
+          outputLabel="ROC Year Equivalent"
           :output="usYearConvert"
-          enterVal="Enter US Year"
+          enterVal="Enter Gregorian Year"
         />
       </div>
       <div>
         <Converter
-          label="Taiwan Year - US Year"
-          outputLabel="US Year Equivalent"
+          label="ROC - Gregorian"
+          outputLabel="Gregorian Year Equivalent"
           :output="twYearConvert"
-          enterVal="Enter TW Year"
+          enterVal="Enter ROC Year"
         />
       </div>
     </div>
