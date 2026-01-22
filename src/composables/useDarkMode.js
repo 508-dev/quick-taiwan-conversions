@@ -4,7 +4,13 @@ const isDark = ref(false);
 
 // Load theme from localStorage on init
 const initTheme = () => {
-  const savedTheme = localStorage.getItem('theme');
+  let savedTheme = null;
+
+  try {
+    savedTheme = localStorage.getItem('theme');
+  } catch (_) {
+    savedTheme = null;
+  }
   if (savedTheme) {
     isDark.value = savedTheme === 'dark';
   } else {
@@ -26,7 +32,9 @@ const applyTheme = () => {
 // Toggle dark mode
 const toggleDarkMode = () => {
   isDark.value = !isDark.value;
-  localStorage.setItem('theme', isDark.value ? 'dark' : 'light');
+  try {
+    localStorage.setItem('theme', isDark.value ? 'dark' : 'light');
+  } catch (_) {}
   applyTheme();
 };
 
