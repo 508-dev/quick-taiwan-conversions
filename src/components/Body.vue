@@ -1,6 +1,12 @@
 <template>
   <div id="heading">
-    <h1>{{ msg }}</h1>
+    <div id="header-top">
+      <h1>{{ msg }}</h1>
+      <button id="theme-toggle" @click="toggleDarkMode" :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+        <span v-if="isDark">☀️</span>
+        <span v-else>🌙</span>
+      </button>
+    </div>
     <h2>New in Taiwan?<br />Here are some converters to help you out!<br /></h2>
     <p v-if="rateUpdatedAt" id="rate-update">
       USD-NTD rate: {{ formattedUsdToTwd }} last updated:
@@ -150,11 +156,19 @@
 
 <script>
 import Converter from "./Converter.vue";
+import { useDarkMode } from "../composables/useDarkMode";
 
 export default {
   name: "Body",
   props: {
     msg: String,
+  },
+  setup() {
+    const { isDark, toggleDarkMode } = useDarkMode();
+    return {
+      isDark,
+      toggleDarkMode,
+    };
   },
   data() {
     return {
@@ -336,14 +350,54 @@ export default {
   border-left: 3px solid #fff;
   border-right: 3px solid #fff;
 }
+
+[data-theme="dark"] #heading {
+  background-color: rgba(30, 30, 30, 0.85);
+  color: #fff;
+}
+
+#header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
 h1 {
   margin: auto;
   padding-top: 25px;
+  flex-grow: 1;
 }
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+#theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] #theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 h2 {
   color: #000;
   margin: auto;
   padding-bottom: 30px;
+}
+
+[data-theme="dark"] h2 {
+  color: #fff;
 }
 #rate-update {
   margin: 0 0 20px;
@@ -365,6 +419,12 @@ h2 {
   border: 3px solid #fff;
   color: #fff;
 }
+
+[data-theme="dark"] #converters {
+  background-color: rgba(45, 45, 45, 0.95);
+  border-color: #ddd;
+}
+
 @media (min-width: 550px) {
   #converters {
     grid-template-columns: repeat(2, 1fr);
@@ -384,6 +444,12 @@ h2 {
   border-left: 3px solid #fff;
   border-right: 3px solid #fff;
 }
+
+[data-theme="dark"] #footer {
+  background-color: rgba(20, 20, 20, 0.9);
+  color: #fff;
+}
+
 #info {
   padding: 20px;
 }
