@@ -9,7 +9,7 @@
       "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
   },
   "dependencies": {
-    "@vitejs/plugin-vue": "^1.6.1",
+    "@vitejs/plugin-vue": "^6.0.7",
     "vite": "^8.1.4",
     "vue": "^3.0.0"
   },
